@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom reusable classes */
+.btn {
+  @apply bg-cyan-400 text-black px-6 py-2 rounded-lg hover:scale-105 transition;
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-10 text-center;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(270deg, #0f172a, #06b6d4, #1e293b);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+}
