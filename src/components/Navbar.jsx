@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const closeMenu = () => setOpen(false);
 
   return (
     <nav className="bg-black/80 backdrop-blur text-white fixed w-full z-50">
@@ -9,10 +12,10 @@ const Navbar = () => {
         <h1 className="text-xl font-bold text-cyan-400">JD's Portfolio</h1>
 
         <div className="hidden md:flex gap-6">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <Link to="/" onClick={closeMenu}>Home</Link>
+          <Link to="/about" onClick={closeMenu}>About</Link>
+          <Link to="/projects" onClick={closeMenu}>Projects</Link>
+          <Link to="/contact" onClick={closeMenu}>Contact</Link>
         </div>
 
         <button onClick={() => setOpen(!open)} className="md:hidden">☰</button>
@@ -20,12 +23,10 @@ const Navbar = () => {
 
       {open && (
         <div className="flex flex-col items-center gap-4 pb-4 md:hidden">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#services">Services</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <Link to="/" onClick={closeMenu}>Home</Link>
+          <Link to="/about" onClick={closeMenu}>About</Link>
+          <Link to="/projects" onClick={closeMenu}>Projects</Link>
+          <Link to="/contact" onClick={closeMenu}>Contact</Link>
         </div>
       )}
     </nav>
